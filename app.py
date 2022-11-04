@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
+from flask_wtf import FlaskForm
 
 
 db=SQLAlchemy()
@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///fl2do.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config['SECRET_KEY']= '6716c1c7a2a42caadadb169af7cc9df4'
 
 with app.app_context():
     db.init_app(app)
