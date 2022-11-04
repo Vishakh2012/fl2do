@@ -1,249 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>   
-{% block head %}
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% block title %} {% endblock title %}</title>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script src="static/index.js"></script>
-{% endblock head %}
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %}</title>
+    <!-- icons for the footer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- CSS only -->
+    <link rel="stylesheet" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="static/index.js"></script>
+    {% endblock head %}
 </head>
+
 <body>
- <!-- navbar -->
-   <div id="nav-bar">
-    {% block navbar %}
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">fl2do</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  About Us
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Team</a></li>
-                  <li><a class="dropdown-item" href="#">Our Mission</a></li>
-                </ul>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2 fw-semibold" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-primary" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-   {% endblock navbar %}
-</div>
-<!-- content -->
-   <div id="content">
-       {% block content %}       
-       {% endblock content %}
-   </div>
-   <!-- footer -->
-   
-       <!-- Footer -->
-   <footer class="bg-light text-center text-black">
+    <!-- navbar -->
+    <div id="nav-bar">
+        {% block navbar %}
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">fl2do</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                About Us
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Team</a></li>
+                                <li><a class="dropdown-item" href="#">Our Mission</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 fw-semibold" type="search" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        {% endblock navbar %}
+    </div>
+    <!-- content -->
+    <div id="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
     {% block footer %}
-    <!-- Grid container -->
-    <div class="container p-4">
-      <!-- Section: Social media -->
-      <section class="mb-4">
-        <!-- Facebook -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-facebook-f"></i
-        ></a>
-  
-        <!-- Twitter -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-twitter"></i
-        ></a>
-  
-        <!-- Google -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-google"></i
-        ></a>
-  
-        <!-- Instagram -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-instagram"></i
-        ></a>
-  
-        <!-- Linkedin -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-linkedin-in"></i
-        ></a>
-  
-        <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-github"></i
-        ></a>
-      </section>
-      <!-- Section: Social media -->
-  
-      <!-- Section: Form -->
-      <section class="">
-        <form action="">
-          <!--Grid row-->
-          <div class="row d-flex justify-content-center">
-            <!--Grid column-->
-            <div class="col-auto">
-              <p class="pt-2">
-                <strong>Sign up for our newsletter</strong>
-              </p>
+    <footer class="bd-footer py-4 py-md-5 mt-5 bg-light">
+        <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="row">
+                <div class="col-lg-3 mb-3">
+                    <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none" href="/"
+                        aria-label="FL2DO">
+                        <svg                                                                                                                                                                                            id="e9GwIjMqnNE1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><g transform="translate(70.178775 13.122861)"><path d="M61.278052,119.246862c17.359916-43.853183,63.697138-141.838068,53.062001-61.049829-.074467.565678-53.062001-27.900342-53.062001,61.049829Z" stroke="#3f5787" stroke-width="0.6"/><path d="M61.848612,126.664131c-1.141119,41.650818,54.08193-20.527112,54.203119-19.96957c8.634575,39.72412-45.010455,15.892634-54.203119,19.96957Z" transform="translate(.000002 0.000001)" stroke="#3f5787" stroke-width="0.6"/><path style="mix-blend-mode:darken" d="M61.278052,214.530238v-95.283376c33.493502,94.914861-52.50004,63.218219,0,95.283376Z" transform="translate(0 0.000002)" paint-order="stroke fill markers" stroke="#3f5787" stroke-width="0.6"/><path d="M241.004184,58.197033l-3.423355,134.651959-61.04983,4.564473c55.451871,26.298225,86.50361-45.129588,64.473185-139.216432Z" transform="translate(-165.655056 16.44436)" stroke="#3f5787" stroke-width="0.6"/></g></svg>
+                        <span class="fs-5">FL2DO</span>
+                    </a>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2">Designed and built for those who dream by tgise wgi dream.</li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a class="link-secondary" href="/">Home</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="/docs/5.2/">Docs</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="/docs/5.2/examples/">Examples</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://icons.getbootstrap.com/">Icons</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://themes.getbootstrap.com/">Themes</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://blog.getbootstrap.com/">Blog</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://cottonbureau.com/people/bootstrap">Swag Store</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5>Guides</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a class="link-secondary" href="/docs/5.2/getting-started/">Getting started</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="/docs/5.2/examples/starter-template/">Starter template</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="/docs/5.2/getting-started/webpack/">Webpack</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="/docs/5.2/getting-started/parcel/">Parcel</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="/docs/5.2/getting-started/vite/">Vite</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5>Projects</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a class="link-secondary" href="https://github.com/twbs/bootstrap">Bootstrap 5</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://github.com/twbs/bootstrap/tree/v4-dev">Bootstrap 4</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://github.com/twbs/icons">Icons</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://github.com/twbs/rfs">RFS</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://github.com/twbs/bootstrap-npm-starter">npm starter</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5>Community</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a class="link-secondary" href="https://github.com/twbs/bootstrap/issues">Issues</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://github.com/twbs/bootstrap/discussions">Discussions</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://github.com/sponsors/twbs">Corporate sponsors</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://opencollective.com/bootstrap">Open Collective</a></li>
+                        <li class="mb-2"><a class="link-secondary" href="https://stackoverflow.com/questions/tagged/bootstrap-5">Stack
+                                Overflow</a></li>
+                    </ul>
+                </div>
             </div>
-            <!--Grid column-->
-  
-            <!--Grid column-->
-            <div class="col-md-5 col-12">
-              <!-- Email input -->
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="form5Example21" class="form-control" />
-                <label class="form-label" for="form5Example21">Email address</label>
-              </div>
-            </div>
-            <!--Grid column-->
-  
-            <!--Grid column-->
-            <div class="col-auto">
-              <!-- Submit button -->
-              <button type="submit" class="btn btn-outline-light mb-4">
-                Subscribe
-              </button>
-            </div>
-            <!--Grid column-->
-          </div>
-          <!--Grid row-->
-        </form>
-      </section>
-      <!-- Section: Form -->
-  
-      <!-- Section: Text -->
-      <section class="mb-4">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-          repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-          eum harum corrupti dicta, aliquam sequi voluptate quas.
-        </p>
-      </section>
-      <!-- Section: Text -->
-  
-      <!-- Section: Links -->
-      <section class="">
-        <!--Grid row-->
-        <div class="row">
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links</h5>
-  
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
-  
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links</h5>
-  
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
-  
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links</h5>
-  
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
-  
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links</h5>
-  
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
         </div>
-        <!--Grid row-->
-      </section>
-      <!-- Section: Links -->
-    </div>
-    <!-- Grid container -->
-  
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2022 Copyright:
-      <a class="text-white" href="/index.html">fl2do.com</a>
-    </div>
-    <!-- Copyright -->
-    {% endblock footer %} 
-</footer>
+    </footer>
+    {% endblock footer %}
 </body>
+
 </html>
