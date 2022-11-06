@@ -1,8 +1,8 @@
-
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_wtf import FlaskForm
+from wtforms import StringField,SubmitField
 
 
 db=SQLAlchemy()
@@ -11,6 +11,16 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///fl2do.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['SECRET_KEY']= '6716c1c7a2a42caadadb169af7cc9df4'
+
+class task_form(FlaskForm):
+    task = StringField('enter your task')
+    task_desc =StringField('decribe your task briefly')
+    sub_task1 =StringField('sub_task1')
+    sub_task2 =StringField('sub_task2')
+    sub_task3 =StringField('sub_task3')
+    submit = SubmitField('Submit')
+ 
+    
 
 with app.app_context():
     db.init_app(app)
@@ -25,32 +35,18 @@ class Todo(db.Model):
     declared_at = db.Column(db.DateTime, default=datetime.utcnow)
     
 
-@app.route("/")
-def show():
-    allTodo = Todo.query.all()
-    return render_template('index.html',allTodo = allTodo)
+
 
 @app.route("/update/", methods=["POST","GET"])
-def create_task():
-    if request.method == 'POST':
-        task_name = request.form["task_name"]
-        task_desc = request.form["task_desc"]
-        sub_task1 = request.form["sub_task1"]
-        sub_task2 = request.form["sub_task2"]
-        sub_task3 = request.form["sub_task3"]
+def task():
+    form = task_form()
+    if form.validate_on_submit():
+        return redirect("/success/")
+    return render_template("index.html", form = form)
         
-        todo = Todo(
-            task_name=task_name,
-            task_desc=task_desc,
-            sub_task1 = sub_task1,
-            sub_task2 = sub_task2,
-            sub_task3 = sub_task3
-            )
-        db.session.add(todo)
-        db.session.commit()
-    return redirect("/")
-        
+@app.route("/success/")
+def success():
+    return render_template("success.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    app.run(debug=True,use_reloader = False)
