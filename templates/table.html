@@ -1,13 +1,70 @@
 {% extends 'base.html' %}
 {% block title %}
-    to-do list  
+home page
 {% endblock title %}
 {% block head %}
-    {{ super() }}
+{{ super() }}
 {% endblock head %}
+{% block content %}
 {% block navbar %}
     {{ super() }}
 {% endblock navbar %}
-{% block cintent %}
-    
-{% endblock cintent %}
+{% block form %}
+    {{ super() }}
+{% endblock form %}
+{% block table %}
+    <!-- to-do list table -->
+    <table class="table table-hover mt-5">
+        <thead>
+            <!-- table heading -->
+          <tr>
+            <th scope="col">S No.</th>
+            <th scope="col">Task Name</th>
+            <th scope="col">Task Description</th>
+            <th scope="col">Sub Tasks</th>
+            <th scope="col">Task Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for task in allTodo  %}
+            <tr>
+              <td>{{loop.index}}</td>
+              <td>{{task.task_name}}</td>
+              <td>{{task.task_desc}}</td>
+              <!-- sub task cell for the row -->
+              <td>
+                <form action="/delete" method="post" id = "x">
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name={{task.sub_task1}} value= 1 id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      {{task.sub_task1}}
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name={{task.sub_task2}} value= 2 id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      {{task.sub_task2}}
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name={{task.sub_task3}} value= 3 id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      {{task.sub_task3}}
+                    </label>
+                </form>
+                  </div>
+              </td>
+              
+              <td>{{task.declared_at}}</td>
+
+
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{% endblock table %}
+{% endblock content %}
+{% block footer %}
+{{super()}}
+{% endblock footer %}
