@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_wtf import FlaskForm
-from wtforms import StringField,SubmitField
+from wtforms import StringField,SubmitField, BooleanField
+from wtforms.validators import InputRequired
 
 
 
@@ -14,14 +15,16 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['SECRET_KEY']= '6716c1c7a2a42caadadb169af7cc9df4'
 
 class task_form(FlaskForm):
-    task = StringField('enter your task')
-    task_desc =StringField('decribe your task briefly')
-    sub_task1 =StringField('enter the subtask')
-    sub_task2 =StringField('enter the subtask')
-    sub_task3 =StringField('enter the subtask')
+    task = StringField('enter your task',validators = [InputRequired('please enter the task')])
+    task_desc = StringField('decribe your task briefly')
+    sub_task1 = StringField('enter the subtask',validators = [InputRequired('please enter the task')])
+    sub_task2 = StringField('enter the subtask',validators = [InputRequired('please enter the task')])
+    sub_task3 = StringField('enter the subtask',validators = [InputRequired('please enter the task')])
     submit = SubmitField('Submit')
  
-    
+
+
+       
 
 with app.app_context():
     db.init_app(app)
@@ -37,13 +40,31 @@ class Todo(db.Model):
     
 
 
+class subtask(FlaskForm):
+    cst1 = BooleanField("form.sub_task1.data",default = False)
+    cst2 = BooleanField("form.sub_task2.data",default = False)
+    cst3 = BooleanField("form.sub_task3.data",default = False)
+
 
 @app.route("/")
 def task():
+    sub_form = subtask()
     form = task_form()
     allTodo = Todo.query.all()
-    return render_template("index.html", form = form,allTodo=allTodo)
+    return render_template("index.html", form = form,allTodo=allTodo,sub_form=sub_form)
         
+@app.route("/delete/<int:sno>", methods=["POST","GET"])
+def delete_to_table(sno):
+    del_task = Todo.query.filter_by(SNo = sno).first()
+    db.session.delete(del_task)
+    db.session.commit()
+    return redirect("/")
+    
+    
+    
+    
+    
+    
 @app.route("/update/", methods=["POST","GET"])
 def add_to_table():
     form = task_form()
@@ -62,3 +83,4 @@ def add_to_table():
 
 if __name__ == "__main__":
     app.run(debug=True,use_reloader = False)
+
