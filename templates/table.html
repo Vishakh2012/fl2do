@@ -33,41 +33,26 @@ home page
               <td>{{task.task_desc}}</td>
               <!-- sub task cell for the row -->
               <td>
-                <form action="/delete/{{ task.SNo }}" id={{task.task_name}} method="post" >
+                <form action="/delete" method="post" id = "x">
 
                   <div class="form-check">
-                    <p>
-                        {{ sub_form.cst1(onChange = "submit_form()") }} {{task.sub_task1}}
-                    </p>
+                    <input class="form-check-input" type="checkbox" name={{task.sub_task1}} value= 1 id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      {{task.sub_task1}}
                     </label>
                   </div>
                   <div class="form-check">
-                    <p>
-                        {{ sub_form.cst2(onChange = "submit_form()") }} {{task.sub_task2}}
-                    </p>
+                    <input class="form-check-input" type="checkbox" name={{task.sub_task2}} value= 2 id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      {{task.sub_task2}}
+                    </label>
                   </div>
                   <div class="form-check">
-                    <p>
-                        {{ sub_form.cst3(onChange = "submit_form()")}} {{task.sub_task3}}
-                    </p>
+                    <input class="form-check-input" type="checkbox" name={{task.sub_task3}} value= 3 id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      {{task.sub_task3}}
+                    </label>
                 </form>
-                <script>
-
-                    function submit_form(){
-                    
-                        var subm1 = document.getElementById('cst1');
-                        var subm2 = document.getElementById( 'cst2');
-                        var subm3 = document.getElementById('cst3');
-                        var form = document.getElementById('{{ task.task_name| tojson | safe }}');
-    
-                        if ((subm1.checked == true) && (subm2.checked == true) && (subm3.checked == true))
-                        {
-                            subm1.form.submit()
-                            console.log(form)
-                        }
-                    }
-
-                </script>
                   </div>
               </td>
               
