@@ -34,12 +34,12 @@ home page
             <td>{{task.task_desc}}</td>
             <!-- sub task cell for the row -->
             <td>
-                <form action="/delete/{{ task.SNo }}" id={{task.task_name}} method="post" autocomplete="off">
+                <form action="/delete/{{ task.SNo }}" id={{task.task_name}} method="post">
 
                     <div class="form-check">
                         <p>
                             <input onclick="submit_form()" type="checkbox" value="x"
-                                id= {{task.sub_task1 }} >{{ task.sub_task1 }}
+                                id= {{task.sub_task1 }} > {{ task.sub_task1 }}
                         </p>
 
 
@@ -47,7 +47,7 @@ home page
                     <div class="form-check">
                         <p>
                             <input onclick="submit_form()" type="checkbox" value="y"
-                                id={{task.sub_task2 }}>{{ task.sub_task2 }}
+                                id={{task.sub_task2 }}> {{ task.sub_task2 }}
                         </p>
 
 
@@ -55,7 +55,7 @@ home page
                     <div class="form-check">
                         <p>
                             <input onclick="submit_form()" type="checkbox" value="z"
-                                id={{task.sub_task3 }}>{{ task.sub_task3 }}
+                                id={{task.sub_task3 }}> {{ task.sub_task3 }}
                         </p>
 
 
