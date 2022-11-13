@@ -5,14 +5,14 @@ from flask_wtf import FlaskForm
 from wtforms import StringField,SubmitField, BooleanField
 from wtforms.validators import InputRequired
 
+from fl import create_app
 
 
 db=SQLAlchemy()
-app = Flask(__name__)
+app = create_app()
+app.config.from_pyfile('config.py')
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///fl2do.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config['SECRET_KEY']= '6716c1c7a2a42caadadb169af7cc9df4'
+
 
 class task_form(FlaskForm):
     task = StringField('enter your task',validators = [InputRequired('please enter the task')])
@@ -26,8 +26,6 @@ class task_form(FlaskForm):
 
        
 
-with app.app_context():
-    db.init_app(app)
 
 class Todo(db.Model):
     SNo= db.Column(db.Integer, primary_key=True)
