@@ -9,10 +9,14 @@ from fl import create_app
 
 
 db=SQLAlchemy()
+
+
 app = create_app()
-app.config.from_pyfile('config.py')
+#for production configuration
+#app.config.from_object('config.ProdConfig')
 
-
+#for development configuration
+app.config.from_object('config.DevConfig')
 
 class task_form(FlaskForm):
     task = StringField('enter your task',validators = [InputRequired('please enter the task')])
